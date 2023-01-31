@@ -122,7 +122,7 @@ class Cat():
         'clanborn', 'halfclan1', 'halfclan2', 'outsider_roots1', 'outsider_roots2',
         'loner1', 'loner2', 'kittypet1', 'kittypet2', 'rogue1', 'rogue2', 'abandoned1',
         'abandoned2', 'abandoned3', 'medicine_cat', 'otherclan', 'otherclan2', 'ostracized_warrior', 'disgraced', 
-        'retired_leader', 'refugee', 'tragedy_survivor', 'clan_founder', 'orphaned'
+        'retired_leader', 'refugee', 'tragedy_survivor', 'clan_founder', 'orphaned','farawayclan'
     ]
     all_cats: Dict[str, Cat] = {}  # ID: object
     outside_cats: Dict[str, Cat] = {}  # cats outside the clan
@@ -322,6 +322,12 @@ class Cat():
                 self.backstory = 'clanborn'
         else:
             self.backstory = self.backstory
+        
+        if self.backstory in ['clanborn','halfclan1','outsider_roots1'] and game.clan:
+            self.original_clan = game.clan.name
+        else:
+            self.original_clan = "Unknown"
+
 
         # sex
         if self.gender is None:

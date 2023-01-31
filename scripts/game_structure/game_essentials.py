@@ -388,7 +388,8 @@ class Game():
                 "retired": inter_cat.retired if inter_cat.retired else False,
                 "faded_offspring": inter_cat.faded_offspring,
                 "opacity": inter_cat.opacity,
-                "prevent_fading": inter_cat.prevent_fading
+                "prevent_fading": inter_cat.prevent_fading,
+                "original_clan": inter_cat.original_clan
             }
             clan_cats.append(cat_data)
             inter_cat.save_condition()
